@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,7 @@ public class RegistrationAPI {
 
 	static Logger logger = LogManager.getLogger(RegistrationAPI.class.getName());
 
-	@PostMapping(value = "userLogin")
+	@PostMapping(value = "/Login")
 	public ResponseEntity<User> authenticateUser(@RequestBody User user) throws Exception {
 		try {
 			logger.info("VALIDATING CREDENTIALS. CUSTOMER EMAIL ID: " + user.getEmailId());
@@ -43,8 +44,13 @@ public class RegistrationAPI {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, environment.getProperty(e.getMessage()));
 		}
 	}
+	@GetMapping("/hello")
+	public String get()
+	{
+		return "hello";
+	}
 
-	@PostMapping(value = "registerCustomer")
+	@PostMapping(value = "/registerCustomer")
 	public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception {
 		try {
 			logger.info("TRYING TO REGISTER. CUSTOMER EMAIL ID: " + user.getEmailId());

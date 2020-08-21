@@ -10,4 +10,6 @@ CREATE TABLE EK_USER(
 );
 
 INSERT INTO EK_USER (EMAIL_ID, NAME, PASSWORD) VALUES ('aayurshi@gmail.com', 'Aayurshi', 'Aayurshi@123');
-INSERT INTO EK_USER (EMAIL_ID, NAME, PASSWORD, PHONE_NUMBER, ADDRESS) VALUES ('shubham@gmail.com', 'Shubham', 'Shubham@123')
+INSERT INTO EK_USER (EMAIL_ID, NAME, PASSWORD) VALUES ('shubham@gmail.com', 'Shubham', 'Shubham@123');
+
+Select * from EK_USER;
